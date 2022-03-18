@@ -28,32 +28,33 @@ public class ClienteService {
 		return clienteRepository.findAll(pageable);
 	}
 
-	public Optional<Cliente> findByInitialNameOrderByFatturato(@RequestParam String prefix) {
-		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByFatturatoAnnuale(prefix);
+	public Page<Cliente> findByInitialNameOrderByFatturato(@RequestParam String prefix, Pageable pageable) {
+		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByFatturatoAnnuale(prefix, pageable);
 	}
 
-	public Optional<Cliente> findByInitialNameOrderByDataInserimento(@RequestParam String prefix) {
-		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByDataInserimento(prefix);
+	public Page<Cliente> findByInitialNameOrderByDataInserimento(@RequestParam String prefix, Pageable pageable) {
+		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByDataInserimento(prefix, pageable);
 	}
 
-	public Optional<Cliente> findByInitialNameOrderByDataUltimoContatto(@RequestParam String prefix) {
-		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByDataUltimoContatto(prefix);
+	public Page<Cliente> findByInitialNameOrderByDataUltimoContatto(@RequestParam String prefix, Pageable pageable) {
+		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByDataUltimoContatto(prefix, pageable);
 	}
 
-	public Optional<Cliente> findByInitialNameOrderByProvincia(@RequestParam String prefix) {
-		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByIndirizziComuneProvinciaNome(prefix);
+	public Page<Cliente> findByInitialNameOrderByProvincia(@RequestParam String prefix, Pageable pageable) {
+		return clienteRepository.findByNomeContattoStartingWithIgnoreCaseOrderByIndirizziComuneProvinciaNome(prefix,
+				pageable);
 	}
 
-	public Optional<Cliente> findByFatturato(@RequestParam Double fatturato) {
-		return clienteRepository.findByQueryParam(fatturato);
+	public Page<Cliente> findByFatturato(@RequestParam Double fatturato, Pageable pageable) {
+		return clienteRepository.findByQueryParam(fatturato, pageable);
 	}
 
-	public Optional<Cliente> findByDataInserimento(@RequestParam LocalDate dataInserimento) {
-		return clienteRepository.findByQueryParamInserimento(dataInserimento);
+	public Page<Cliente> findByDataInserimento(@RequestParam LocalDate dataInserimento, Pageable pageable) {
+		return clienteRepository.findByQueryParamInserimento(dataInserimento, pageable);
 	}
 
-	public Optional<Cliente> findByDataUltimoContatto(@RequestParam LocalDate dataUltimoContatto) {
-		return clienteRepository.findByQueryParamUltimoContatto(dataUltimoContatto);
+	public Page<Cliente> findByDataUltimoContatto(@RequestParam LocalDate dataUltimoContatto, Pageable pageable) {
+		return clienteRepository.findByQueryParamUltimoContatto(dataUltimoContatto, pageable);
 	}
 
 	public Cliente save(Cliente cliente) {
