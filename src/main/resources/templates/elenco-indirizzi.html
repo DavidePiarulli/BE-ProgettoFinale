@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Epic Energy Services - Lista Province</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/layout.css}" />
+</head>
+<body>
+	<div class="header-menu">Epic Energy Services</div>
+	<div class="header-section">Elenco Province</div>
+
+	<div class="container">
+		<div class="card">
+
+
+
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="header">Via</th>
+						<th class="header">Civico</th>
+						<th class="header">Localita</th>
+						<th class="header">CAP</th>
+						<th class="header">Tipo</th>
+						<th class="header">Comune</th>
+						<th class="header">Provincia</th>
+
+
+						<th class="header"></th>
+						<th class="header"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="indirizzo : ${indirizzi}">
+						<td th:text="${indirizzo.via}"></td>
+						<td th:text="${indirizzo.civico}"></td>
+						<td th:text="${indirizzo.localita}"></td>
+						<td th:text="${indirizzo.cap}"></td>
+						<td th:text="${indirizzo.tipo}"></td>
+						<td th:text="${indirizzo.comune.nome}"></td>
+						<td th:text="${indirizzo.comune.provincia.sigla}"></td>
+
+
+
+					</tr>
+				</tbody>
+			</table>
+
+			<hr />
+			<ul class="nav nav-pills">
+				<li class="nav-item"
+					th:each=" i : ${#numbers.sequence(0,indirizzi.totalPages-1)}">
+					<a th:href="@{/web/indirizzi/mostraElenco/(page=${i})}"
+					th:text="${i}" class="nav-link"
+					th:classappend="${currentPage}==${i}?'active':''"></a>
+				</li>
+			</ul>
+
+
+
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+	<div class="link-home">
+		<a href="/">Torna alla Home</a>
+	</div>
+	<div class="footer">Powered by Epicode School</div>
+</body>
+</html>

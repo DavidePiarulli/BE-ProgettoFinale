@@ -1,0 +1,707 @@
+{
+	"info": {
+		"_postman_id": "38c37dcb-a206-4264-85e9-b309288af448",
+		"name": "Progetto Finale - Epic Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clienti",
+			"item": [
+				{
+					"name": "Find All Clienti",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clienti",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By ID Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clienti/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"string\",\r\n  \"partitaIva\": \"string\",\r\n  \"email\": \"string\",\r\n  \"dataUltimoContatto\": \"2022-03-15\",\r\n  \"fatturatoAnnuale\": 0,\r\n  \"pec\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"emailContatto\": \"string\",\r\n  \"nomeContatto\": \"string\",\r\n  \"cognomeContatto\": \"string\",\r\n  \"telefonoContatto\": \"string\",\r\n  \"tipo\": \"PA\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cliente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente And Indirizzo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"string\",\r\n  \"partitaIva\": \"string\",\r\n  \"email\": \"string\",\r\n  \"dataUltimoContatto\": \"2022-03-15\",\r\n  \"fatturatoAnnuale\": 0,\r\n  \"pec\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"emailContatto\": \"string\",\r\n  \"nomeContatto\": \"string\",\r\n  \"cognomeContatto\": \"string\",\r\n  \"telefonoContatto\": \"string\",\r\n  \"tipo\": \"PA\",\r\n  \"indirizzi\": [\r\n    {\r\n      \"via\": \"string\",\r\n      \"civico\": 0,\r\n      \"localita\": \"string\",\r\n      \"cap\": 0,\r\n      \"tipo\": \"SEDE_LEGALE\"\r\n    }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cliente/indirizzo/comune/97",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"indirizzo",
+								"comune",
+								"97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ragioneSociale\": \"string\",\r\n  \"partitaIva\": \"string\",\r\n  \"email\": \"string\",\r\n  \"dataUltimoContatto\": \"2022-03-15\",\r\n  \"fatturatoAnnuale\": 0,\r\n  \"pec\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"emailContatto\": \"string\",\r\n  \"nomeContatto\": \"string\",\r\n  \"cognomeContatto\": \"string\",\r\n  \"telefonoContatto\": \"string\",\r\n  \"tipo\": \"SRL\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cliente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fatture",
+			"item": [
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/fatture",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fatture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/fatture/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fatture",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"anno\": 2022,\r\n  \"importo\": 1000.0,\r\n  \"numero\": 12344,\r\n  \r\n  \"stato\": {\r\n    \"nome\": \"IN TRANSITO\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clienti/1/fatture",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti",
+								"1",
+								"fatture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clienti/1/fatture/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti",
+								"1",
+								"fatture",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"anno\": 2022,\r\n  \"importo\": 500.0,\r\n  \"numero\": 1234433434,\r\n\r\n  \"stato\": {\r\n    \"nome\": \"ATTESA PAGAMENTO\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/fattura/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"fattura",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Indirizzi",
+			"item": [
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/indirizzi",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"indirizzi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/indirizzi/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"indirizzi",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"via\": \"don Bosco\",\r\n  \"civico\": 10,\r\n  \"localita\": \"Stazione\",\r\n  \"cap\": 7894,\r\n  \"tipo\": \"SEDE_AMMINISTRATIVA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clienti/1/indirizzo/comune/98",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clienti",
+								"1",
+								"indirizzo",
+								"comune",
+								"98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"via\": \"don Bosco\",\r\n  \"civico\": 11,\r\n  \"localita\": \"Centro\",\r\n  \"cap\": 7894,\r\n  \"tipo\": \"SEDE_AMMINISTRATIVA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/indirizzo/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"indirizzo",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update To Different Comune",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"via\": \"don Bosco\",\r\n  \"civico\": 10,\r\n  \"localita\": \"Torino Centro\",\r\n  \"cap\": 7894,\r\n  \"tipo\": \"SEDE_LEGALE\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/indirizzo/15/comune/97",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"indirizzo",
+								"15",
+								"comune",
+								"97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cliente/13/indirizzo/14/comune/97",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cliente",
+								"13",
+								"indirizzo",
+								"14",
+								"comune",
+								"97"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comuni",
+			"item": [
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/comuni",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/comuni/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By NOME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/comuni/nome/bar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"comuni",
+								"nome",
+								"bar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Province",
+			"item": [
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/province",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"province"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/province/101",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"province",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By NOME",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/province/nome/ba",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"province",
+								"nome",
+								"ba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SIGNUP",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"string\",\r\n  \"password\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0NzU1NTk4MywiZXhwIjoxNjQ4NDE5OTgzfQ.EcKiThRGyt5ChgceNWQwhkcgxptFceozyoWFVahDOAPFN5OB-dOVbYUmLWvv6h_euk4uGjOFlhdQUGtjXeYdBA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

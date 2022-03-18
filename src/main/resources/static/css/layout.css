@@ -1,0 +1,69 @@
+body {
+	font: 14px Arial, sans-serif;
+	margin: 0px;
+}
+
+.header-menu {
+	padding: 10px 10px;
+	text-align: center;
+	font-size: 32px;
+}
+
+.header {
+	font-size: 18px;
+	text-align: left;
+}
+
+.container {
+	width: 100%;
+	background: #f2f2f2;
+	align: center;
+}
+
+.item-form {
+	width: 100%;
+	text-align: left;
+	font-size: 14px;
+	padding: 10px;
+}
+
+.container-menu {
+	background: #f2f2f2;
+    padding: 70px 0;
+}
+
+.header-section {
+	font-size: 28px;
+	text-align: center;
+	padding: 15px;
+}
+
+
+.item-menu {
+	width: 100%;
+	text-align: center;
+	font-size: 22px;
+	padding: 15px;
+}
+
+.link-home {
+	text-align: center;
+	padding: 15px;
+}
+
+.link-add {
+	text-align: center;
+	padding: 25px;
+}
+
+.no-item-found {
+	text-align: center;
+	padding: 25px;
+}
+
+
+.footer {
+	background: #acb3b9;
+	text-align: center;
+	padding: 15px;
+}

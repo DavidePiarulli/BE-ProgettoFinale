@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Epic Energy Services - Gestione clienti</title>
+<meta charset="UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/layout.css}" />
+</head>
+<body>
+	<div class="header-menu">Epic Energy Services</div>
+	<div class="header-section">Elenco clienti</div>
+
+	<div class="container">
+
+		<div class="card">
+		<div> <a href="/web/clienti/mostraFormAggiungi" class="btn btn-primary eBtn">New</a></div>
+
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="header">Ragione Sociale</th>
+						<th class="header">Partita Iva</th>
+						<th class="header">Email</th>
+						<th class="header">Data Inserimento</th>
+						<th class="header">Data Ultimo Contatto</th>
+						<th class="header">Fatturato Annuale</th>
+						<th class="header">Pec</th>
+						<th class="header">Telefono</th>
+						<th class="header">Email Contatto</th>
+						<th class="header">Nome Contatto</th>
+						<th class="header">Cognome Contatto</th>
+						<th class="header">Telefono Contatto</th>
+						<th class="header">Tipo Cliente</th>
+						<th class="header"></th>
+						<th class="header"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente : ${clienti}">
+						<td th:text="${cliente.ragioneSociale}"></td>
+						<td th:text="${cliente.partitaIva}"></td>
+						<td th:text="${cliente.email}"></td>
+						<td
+							th:text="${#temporals.format(cliente.dataInserimento, 'dd-MM-yyyy')}"></td>
+						<td
+							th:text="${#temporals.format(cliente.dataUltimoContatto, 'dd-MM-yyyy')}"></td>
+						<td th:text="${cliente.fatturatoAnnuale}"></td>
+						<td th:text="${cliente.pec}"></td>
+						<td th:text="${cliente.telefono}"></td>
+						<td th:text="${cliente.emailContatto}"></td>
+						<td th:text="${cliente.nomeContatto}"></td>
+						<td th:text="${cliente.cognomeContatto}"></td>
+						<td th:text="${cliente.telefonoContatto}"></td>
+						<td th:text="${cliente.tipo}"></td>
+						<td><a th:href="@{/web/clienti/mostraFormAggiorna/{id}(id=${cliente.id})}"
+							class="btn btn-primary eBtn">Edit</a></td>
+						<td><a th:href="@{delete/(id=${cliente.id})}"
+							class="btn btn-danger delBtn">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="card-block">
+
+				<hr />
+				<ul class="nav nav-pills">
+					<li class="nav-item"
+						th:each=" i : ${#numbers.sequence(0,clienti.totalPages-1)}">
+						<a th:href="@{/web/clienti/mostraElenco/(page=${i})}"
+						th:text="${i}" class="nav-link"
+						th:classappend="${currentPage}==${i}?'active':''"></a>
+					</li>
+				</ul>
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="link-home">
+		<a href="/">Torna alla Home</a>
+	</div>
+	<div class="footer">Powered by Epicode School</div>
+</body>
+</html>
