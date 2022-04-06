@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
@@ -36,6 +37,7 @@ public class Cliente {
 	private String ragioneSociale;
 	private String partitaIva;
 	private String email;
+	@JsonIgnore
 	private LocalDate dataInserimento;
 	private LocalDate dataUltimoContatto;
 	private Double fatturatoAnnuale;

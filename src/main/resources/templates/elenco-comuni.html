@@ -12,8 +12,11 @@
 <div class="header-menu">Epic Energy Services</div>
 <div class="header-section">Elenco Comuni</div>
 
-<div class="container">
+
 <div class="card">
+<div>
+ <a th:if="${listaComuni.isEmpty()}" th:href="'/web/comuni/load'" class="btn btn-primary eBtn">Load Data</a>
+</div>
 
 
 
@@ -42,29 +45,39 @@
             </tr>
        </tbody>
    </table>
-
-<hr />
-				<ul class="nav nav-pills">
-					<li class="nav-item"
-						th:each=" i : ${#numbers.sequence(0,comuni.totalPages-1)}">
-						<a th:href="@{/web/comuni/mostraElenco/(page=${i})}" th:text="${i}" class="nav-link"
-						th:classappend="${currentPage}==${i}?'active':''"></a>
-					</li>
-				</ul>
-
-
-
-</div>
-
-
-
-
-</div>
-    
-  
    
+   <hr />
 
-    <div class="link-home"><a href="/">Torna alla Home</a></div>
-    <div class="footer">Powered by Epicode School</div>
-   </body>
+				</div>
+
+<div th:if = "${totalPages > 0}">
+				<div class = "row col-sm-10">
+				<div class = "col-sm-2">
+					Total Elements: [[${totalItems}]]
+				</div>
+				
+				<div class = "col-sm-1">
+					<a th:if="${currentPage < totalPages}" th:href="@{'/web/comuni/page/' + ${currentPage + 1}}" class="btn btn-secondary btn-sm">Next</a>
+					<span th:unless="${currentPage < totalPages}" class="btn btn-outline-secondary btn-sm disabled" aria-disabled="true">Next</span>
+					</div>
+					
+					<div class = "col-sm-1">
+					<a th:if="${currentPage > 1}" th:href="@{'/web/comuni/page/' + ${currentPage - 1}}" class="btn btn-secondary btn-sm">Previous</a>
+					<span th:unless="${currentPage <= totalPages}" class="btn btn-outline-secondary btn-sm disabled" aria-disabled="true">Previous</span>
+					</div>
+				
+				<div class = "col-sm-1">
+					<a th:if="${currentPage < totalPages}" th:href="@{'/web/comuni/page/' + ${totalPages}}" class="btn btn-secondary btn-sm">Last</a>
+					<span th:unless="${currentPage < totalPages}" class="btn btn-outline-secondary btn-sm disabled" aria-disabled="true">Last</span>
+					</div>
+				</div>
+				</div>
+
+	
+
+	<div  class="link-home">
+		<a  href="/" class="btn btn-info btn-sm">Torna alla Home</a>
+	</div>
+	<div class="footer">Powered by Davide Piarulli</div>
+</body>
 </html>

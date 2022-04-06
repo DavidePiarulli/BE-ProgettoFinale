@@ -150,7 +150,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/cliente/1",
+							"raw": "localhost:8080/api/cliente/2",
 							"host": [
 								"localhost"
 							],
@@ -158,7 +158,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -223,7 +223,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/clienti/1/fatture",
+							"raw": "localhost:8080/api/clienti/13/fatture",
 							"host": [
 								"localhost"
 							],
@@ -231,7 +231,7 @@
 							"path": [
 								"api",
 								"clienti",
-								"1",
+								"13",
 								"fatture"
 							]
 						}
@@ -612,6 +612,32 @@
 			]
 		},
 		{
+			"name": "Data Loader",
+			"item": [
+				{
+					"name": "Loader Comuni and Province",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/loader/comuni/province",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loader",
+								"comuni",
+								"province"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "SIGNUP",
 			"request": {
 				"auth": {
@@ -679,7 +705,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0NzU1NTk4MywiZXhwIjoxNjQ4NDE5OTgzfQ.EcKiThRGyt5ChgceNWQwhkcgxptFceozyoWFVahDOAPFN5OB-dOVbYUmLWvv6h_euk4uGjOFlhdQUGtjXeYdBA",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0ODg1NTYxNSwiZXhwIjoxNjQ5NzE5NjE1fQ.VrZ-4r7tjp3Tgn9UXfg0p7BLgGf_4kP1Y9dEwpdHnTmG2rZ5RVswzN1XrTUSOBbHCPaxNsfsoBGdOV9Z4R7N7g",
 				"type": "string"
 			}
 		]

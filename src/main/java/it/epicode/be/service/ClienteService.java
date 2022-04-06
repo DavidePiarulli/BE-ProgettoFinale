@@ -6,7 +6,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,6 +27,13 @@ public class ClienteService {
 	}
 
 	public Page<Cliente> findAll(Pageable pageable) {
+		return clienteRepository.findAll(pageable);
+	}
+
+	public Page<Cliente> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
+		Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending()
+				: Sort.by(sortField).descending();
+		Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
 		return clienteRepository.findAll(pageable);
 	}
 
@@ -59,6 +68,7 @@ public class ClienteService {
 
 	public Cliente save(Cliente cliente) {
 		cliente.setDataInserimento(LocalDate.now());
+		cliente.setDataUltimoContatto(LocalDate.now());
 		return clienteRepository.save(cliente);
 	}
 
@@ -70,8 +80,7 @@ public class ClienteService {
 			clienteUpdate.setRagioneSociale(cliente.getRagioneSociale());
 			clienteUpdate.setPartitaIva(cliente.getPartitaIva());
 			clienteUpdate.setEmail(cliente.getEmail());
-			clienteUpdate.setDataInserimento(LocalDate.now());
-			clienteUpdate.setDataUltimoContatto(cliente.getDataUltimoContatto());
+			clienteUpdate.setDataUltimoContatto(LocalDate.now());
 			clienteUpdate.setFatturatoAnnuale(cliente.getFatturatoAnnuale());
 			clienteUpdate.setPec(cliente.getPec());
 			clienteUpdate.setTelefono(cliente.getTelefono());

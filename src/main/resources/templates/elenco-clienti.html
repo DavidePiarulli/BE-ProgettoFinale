@@ -12,7 +12,7 @@
 	<div class="header-menu">Epic Energy Services</div>
 	<div class="header-section">Elenco clienti</div>
 
-	<div class="container">
+	
 
 		<div class="card">
 		<div> <a href="/web/clienti/mostraFormAggiungi" class="btn btn-primary eBtn">New</a></div>
@@ -20,7 +20,9 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th class="header">Ragione Sociale</th>
+						<th class="header">
+						<a th:href="@{'/web/clienti/page/' + ${currentPage} + '?sortField=ragioneSociale&sortDir=' + ${reverseSortDir}}">Ragione Sociale</a>
+						</th>
 						<th class="header">Partita Iva</th>
 						<th class="header">Email</th>
 						<th class="header">Data Inserimento</th>
@@ -56,32 +58,45 @@
 						<td th:text="${cliente.tipo}"></td>
 						<td><a th:href="@{/web/clienti/mostraFormAggiorna/{id}(id=${cliente.id})}"
 							class="btn btn-primary eBtn">Edit</a></td>
-						<td><a th:href="@{delete/(id=${cliente.id})}"
+						<td><a th:href="@{/web/clienti/delete/{id}(id=${cliente.id})}" onclick="return confirm('Are you sure you want to delete this client?')"
 							class="btn btn-danger delBtn">Delete</a></td>
 					</tr>
 				</tbody>
 			</table>
+			
+			<hr />
 
-			<div class="card-block">
-
-				<hr />
-				<ul class="nav nav-pills">
-					<li class="nav-item"
-						th:each=" i : ${#numbers.sequence(0,clienti.totalPages-1)}">
-						<a th:href="@{/web/clienti/mostraElenco/(page=${i})}"
-						th:text="${i}" class="nav-link"
-						th:classappend="${currentPage}==${i}?'active':''"></a>
-					</li>
-				</ul>
+				</div>
 
 
-			</div>
-		</div>
+		<div th:if = "${totalPages > 0}">
+				<div class = "row col-sm-10">
+				<div class = "col-sm-2">
+					Total Elements: [[${totalItems}]]
+				</div>
+				
+				<div class = "col-sm-1">
+					<a th:if="${currentPage < totalPages}" th:href="@{'/web/clienti/page/' + ${currentPage + 1} + '?sortField=ragioneSociale&sortDir=' + ${SortDir}}" class="btn btn-secondary btn-sm">Next</a>
+					<span th:unless="${currentPage < totalPages}" class="btn btn-outline-secondary btn-sm disabled" aria-disabled="true">Next</span>
+					</div>
+					
+					<div class = "col-sm-1">
+					<a th:if="${currentPage > 1}" th:href="@{'/web/clienti/page/' + ${currentPage - 1} + '?sortField=ragioneSociale&sortDir=' + ${SortDir}}" class="btn btn-secondary btn-sm">Previous</a>
+					<span th:unless="${currentPage <= totalPages}" class="btn btn-outline-secondary btn-sm disabled" aria-disabled="true">Previous</span>
+					</div>
+				
+				<div class = "col-sm-1">
+					<a th:if="${currentPage < totalPages}" th:href="@{'/web/clienti/page/' + ${totalPages} + '?sortField=ragioneSociale&sortDir=' + ${SortDir}}" class="btn btn-secondary btn-sm">Last</a>
+					<span th:unless="${currentPage < totalPages}" class="btn btn-outline-secondary btn-sm disabled" aria-disabled="true">Last</span>
+					</div>
+				</div>
+				</div>
+
+	
+
+	<div  class="link-home">
+		<a  href="/" class="btn btn-info btn-sm">Torna alla Home</a>
 	</div>
-
-	<div class="link-home">
-		<a href="/">Torna alla Home</a>
-	</div>
-	<div class="footer">Powered by Epicode School</div>
+	<div class="footer">Powered by Davide Piarulli</div>
 </body>
 </html>

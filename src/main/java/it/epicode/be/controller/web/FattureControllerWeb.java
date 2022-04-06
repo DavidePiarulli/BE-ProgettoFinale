@@ -1,11 +1,10 @@
 package it.epicode.be.controller.web;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.epicode.be.model.Fattura;
@@ -32,13 +30,24 @@ public class FattureControllerWeb {
 	@Autowired
 	ClienteService clienteService;
 
-	@GetMapping("/fatture/mostraElenco")
-	public ModelAndView mostraElenco(Pageable pageable, @RequestParam(defaultValue = "0") int page) {
+	@GetMapping("/fatture/page/{pageNo}")
+	public ModelAndView findPaginated(@PathVariable(value = "pageNo") int pageNo) {
 		log.info("Test elenco fatture");
+		int pageSize = 10;
+		Page<Fattura> page = fatturaService.findPaginated(pageNo, pageSize);
+		List<Fattura> listaFatture = page.getContent();
 		ModelAndView view = new ModelAndView("elenco-fatture");
-		view.addObject("fatture", fatturaService.findAll(PageRequest.of(page, 20, Sort.by("cliente"))));
-		view.addObject("currentPage", page);
+		view.addObject("fatture", page);
+		view.addObject("currentPage", pageNo);
+		view.addObject("totalPages", page.getTotalPages());
+		view.addObject("totalItems", page.getTotalElements());
+		view.addObject("listaFatture", listaFatture);
 		return view;
+	}
+
+	@GetMapping("/fatture/mostraElenco")
+	public ModelAndView mostraElenco() {
+		return findPaginated(1);
 	}
 
 	@GetMapping("/fatture/mostraFormAggiungi")

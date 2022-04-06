@@ -30,11 +30,26 @@ public class ApplicationStartUpRunner implements CommandLineRunner {
 	}
 
 	private Cliente initCliente() {
-		Cliente cliente = Cliente.builder().ragioneSociale("BOH").partitaIva("Prova").email("prova@prova.com")
+		Cliente cliente = Cliente.builder().ragioneSociale("CORPO").partitaIva("Prova").email("prova@prova.com")
 				.dataInserimento(LocalDate.parse("2010-11-21")).dataUltimoContatto(LocalDate.now())
-				.fatturatoAnnuale(1000.0).pec("prova@pec").telefono("393287262").emailContatto("conatto@emila.com")
-				.nomeContatto("Provono").cognomeContatto("Giorgioni").telefonoContatto("338382929")
-				.tipo(TipoCliente.SAS).build();
+				.fatturatoAnnuale(20000.0).pec("prova@pec").telefono("393287262").emailContatto("contatto@prova.com")
+				.nomeContatto("Emilio").cognomeContatto("Giorgioni").telefonoContatto("338382929").tipo(TipoCliente.SAS)
+				.build();
+
+		Cliente cliente2 = Cliente.builder().ragioneSociale("SAMURAI").partitaIva("Prova2").email("prova2@prova.com")
+				.dataInserimento(LocalDate.parse("2009-01-11")).dataUltimoContatto(LocalDate.now())
+				.fatturatoAnnuale(10000.0).pec("prova2@pec").telefono("393285432").emailContatto("contatto2@prova.com")
+				.nomeContatto("Johnny").cognomeContatto("Silverhand").telefonoContatto("338436789")
+				.tipo(TipoCliente.SRL).build();
+		clienteRepository.save(cliente2);
+
+		Cliente cliente3 = Cliente.builder().ragioneSociale("NOMAD").partitaIva("Prova3").email("prova3@prova.com")
+				.dataInserimento(LocalDate.parse("2018-02-24")).dataUltimoContatto(LocalDate.now())
+				.fatturatoAnnuale(20000.0).pec("prova3@pec").telefono("393287256").emailContatto("contatto3@prova.com")
+				.nomeContatto("Panam").cognomeContatto("Palmer").telefonoContatto("338389563").tipo(TipoCliente.SPA)
+				.build();
+		clienteRepository.save(cliente3);
+
 		return clienteRepository.save(cliente);
 	}
 
