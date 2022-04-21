@@ -50,7 +50,7 @@ I'm working on a solution to deploy it on Heroku.
 
 ![Cattura](https://user-images.githubusercontent.com/98736255/161876267-39122476-898d-4564-b746-87ece060fed0.PNG)
 
- - ### *PosgreSQL Backup* (downloadable in the properly named folder):
+ - ### *PostgreSQL Backup* (downloadable in the properly named folder):
 
 ![Cattura postgresPNG](https://user-images.githubusercontent.com/98736255/161878799-a588ed74-6b7c-463a-ab64-ca55fcd1e9f3.PNG)
 
